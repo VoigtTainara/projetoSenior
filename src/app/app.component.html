@@ -1,0 +1,29 @@
+<div>
+  <button (click)="redirecionarParaAlmoxarife()"> Acesso ao almoxarife </button>
+  <button (click)="redirecionarParaAdministrativo()"> Acesso ao administrativo </button>
+
+  <div>
+    <label for="solicitante">Nome do Solicitante:</label>
+    <input type="text" #solicitanteField name="solicitante" required>
+  </div>
+  
+  <div>
+    <label for="descricaoItem">Descrição do Item:</label>
+    <textarea #descricaoItemField name="descricaoItem" required></textarea>
+  </div>
+  
+  <div>  
+    <label for="precoProduto">Preço do Produto (R$):</label>
+    <input type="text" #precoProdutoField name="precoProduto" required pattern="\d+(\.\d{1,2})?">
+  </div>
+  
+  <button (click)="registrarCompra(solicitanteField.value, descricaoItemField.value, precoProdutoField.value)">Registrar Compra</button>
+
+  <!-- Somente para exibição dos dados inseridos -->
+  <div compraRegistrada>
+    <h2>Dados da Compra Realizada:</h2>
+    <p><strong>Nome do Solicitante:</strong> {{ solicitanteField.value }}</p>
+    <p><strong>Descrição do Item:</strong> {{ descricaoItemField.value }}</p>
+    <p><strong>Preço do Produto:</strong> R$ {{ precoProdutoField.value }}</p>
+  </div>
+</div>

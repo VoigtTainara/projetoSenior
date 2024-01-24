@@ -1,0 +1,24 @@
+<div>
+    <label for="solicitante">Nome do Solicitante:</label>
+    <input type="text" [value]="solicitante" readonly>
+  
+    <label for="descricaoItem">Descrição do Item:</label>
+    <textarea [value]="descricaoItem" readonly></textarea>
+  
+    <label for="precoProduto">Preço do Produto (R$):</label>
+    <input type="text" [value]="precoProduto" readonly>
+  
+    <!-- Campos adicionais para o aprovador -->
+    <label for="acaoAprovacao">Ação de Aprovação:</label>
+    <select name="acaoAprovacao" required>
+      <option value="aprovar">Aprovar</option>
+      <option value="reprovar">Reprovar</option>
+    </select>
+
+    <div *ngIf="acaoAprovacao === 'reprovar'">
+        <label for="observacao">Descrição do Item:</label>
+        <textarea #observacaoField name="observacao" required></textarea>
+    </div>
+
+    
+</div>
